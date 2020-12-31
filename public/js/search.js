@@ -51,7 +51,7 @@ function addToCollection(title, year, poster, imdb) {
     const selectedImdb = imdb;
 
     axios
-        .post("http://localhost:3000/add-movie", {
+        .post("https://rj-movies-collection.herokuapp.com/add-movie", {
             title: selectedTitle,
             year: selectedYear,
             poster: selectedPoster,

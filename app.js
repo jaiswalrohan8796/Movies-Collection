@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 import bodyParser from "body-parser";
 import path from "path";
 import router from "./routes/routes.js";
-
+const PORT = process.env.PORT || 3000
 const app = express();
 app.use(express.static(path.join(process.cwd(), "public")));
 app.use(bodyParser.json(true));
@@ -17,8 +17,8 @@ mongoose
         { useUnifiedTopology: true, useNewUrlParser: true }
     )
     .then(() => {
-        app.listen(3000, () =>
-            console.log(`listening on http://localhost:3000`)
+        app.listen(PORT, () =>
+
         );
     })
     .catch((err) => console.log(err));
