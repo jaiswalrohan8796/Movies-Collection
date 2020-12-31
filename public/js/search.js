@@ -19,7 +19,7 @@ function getMovies(searchText) {
             let movies = response.data.Search;
             let output = "";
             if (response.data.Response === "False") {
-                output = `<h2 class="text-center my-5">Couldn't find&nbsp;:(</h2>`
+                output = `<h2 class="text-center my-5">Couldn't find &nbsp;:(</h2>`
             } else {
                 $.each(movies, (index, movie) => {
                     output += `
@@ -51,7 +51,7 @@ function addToCollection(title, year, poster, imdb) {
     const selectedImdb = imdb;
 
     axios
-        .post("https://rj-movies-collection.herokuapp.com/add-movie", {
+        .post("http://localhost:3000/add-movie", {
             title: selectedTitle,
             year: selectedYear,
             poster: selectedPoster,

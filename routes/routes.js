@@ -26,7 +26,7 @@ router.post("/add-movie", (req, res, next) => {
     newMovie
         .save()
         .then(() => {
-            res.redirect("/");
+            res.redirect("http://localhost:3000");
         })
         .catch((err) => console.log(err));
 });
@@ -35,7 +35,8 @@ router.delete("/:id", (req, res, next) => {
     const id = req.params.id;
     Movie.deleteOne({ _id: id })
         .then((movie) => {
-            res.redirect("/")
+            console.log(`${id} deleted successfully`);
+            res.redirect("http://localhost:3000")
         })
         .catch((err) => console.log(err));
 });

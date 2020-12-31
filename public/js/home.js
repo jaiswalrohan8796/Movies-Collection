@@ -1,11 +1,12 @@
 function deleteFromCollection(id) {
 
     axios
-        .delete(`https://rj-movies-collection.herokuapp.com/${id}`, {
+        .delete(`http://localhost:3000/${id}`, {
         })
         .then(() => {
+            console.log(`${id} deleted request send`);
             setTimeout(() => {
-                location.href = 'https://rj-movies-collection.herokuapp.com';
+                location.href = 'http://localhost:3000';
             },10)
     })
         .catch((err) => console.log(err));
