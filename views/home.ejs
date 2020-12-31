@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/home.css">
+    <title>Movies Collection</title>
+</head>
+
+<body>
+    <div class="header row text-center">
+        <div class="col-12">
+            <h1 class="head text-center">
+                Movies Collection
+            </h1>
+        </div>
+        <div class="col-6 nav-item "><button type="button" class="btn active"><a href="/">My Collection</a></button>
+        </div>
+        <div class="col-6 nav-item"><button type="button" class="btn"><a href="/add-movie">Add
+                    Movie</a></button></div>
+    </div>
+    <div id="movies" class="main row collection-wrapper text-center">
+        <% if (movies.length > 0) { %>
+            <% movies.forEach((movie)=> { %>
+                <div class="movies-list text-center">
+                    <div class="card text-center" style="width:16rem">
+                        <img class="card-img-top" src='<%= movie.poster %>'>
+                        <div class="card-body">
+                            <h3 class="card-title">
+                                <%= movie.title %>&nbsp;(<%= movie.year %>)
+                            </h3>
+                            <a class="btn btn-primary" href="https://www.imdb.com/title/<%= movie.imdb %>"
+                                >Imdb</a>
+                            <a onclick="deleteFromCollection('<%= movie.id %>')" class="btn btn-danger"
+                                href="#">Remove</a>
+                        </div>
+                    </div>
+                </div>
+                <% }) %>
+                    <% } else { %>
+                        <h2 class="text-center my-5">Add some movies :(</h2>
+                        <% } %>
+    </div>
+
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="js/home.js"></script>
+</body>
+
+</html>
