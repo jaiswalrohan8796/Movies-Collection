@@ -5,6 +5,7 @@ import path from "path";
 import router from "./routes/routes.js";
 import mongodburi from './config.js'
 const app = express();
+const PORT = process.env.PORT || 3000;
 app.use(express.static(path.join(process.cwd(), "public")));
 app.use(bodyParser.json(true));
 app.set("view engine", "ejs");
@@ -14,8 +15,8 @@ app.use(router);
 mongoose
     .connect(mongodburi, { useUnifiedTopology: true, useNewUrlParser: true })
     .then(() => {
-        app.listen(3000, () =>
-            console.log(`listening on http://localhost:3000`)
+        app.listen(PORT, () =>
+            console.log(`listening on ${PORT}`)
         );
     })
     .catch((err) => console.log(err));
