@@ -8,5 +8,5 @@
 ### Stack Info
 Front End : HTML, CSS, Bootstrap   
 Data : Imdb API   
-Back End : NodeJS , ExpressJS
+Back End : NodeJS , ExpressJS   
 Database : MongoDB
